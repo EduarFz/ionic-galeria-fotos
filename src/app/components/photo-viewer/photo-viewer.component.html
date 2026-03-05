@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Vista de Foto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrar()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding visor-content">
+  <!-- Muestra la foto en tamaño completo -->
+  <ion-img [src]="photo.webviewPath" class="foto-completa"></ion-img>
+
+  <ion-button expand="block" color="primary" (click)="cerrar()">
+    <ion-icon name="arrow-back" slot="start"></ion-icon>
+    Volver a la galería
+  </ion-button>
+</ion-content>

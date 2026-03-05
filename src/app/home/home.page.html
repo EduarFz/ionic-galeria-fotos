@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>📷 Galería de Fotos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Grilla de 5 columnas con las fotos tomadas -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2.4"
+               *ngFor="let photo of photoService.photos"
+               (click)="verFoto(photo)">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mensaje cuando no hay fotos -->
+  <div *ngIf="photoService.photos.length === 0"
+       class="ion-padding ion-text-center">
+    <ion-icon name="camera-outline" size="large"></ion-icon>
+    <p>No hay fotos aún. ¡Toma la primera!</p>
+  </div>
+
+  <!-- Botón flotante con ícono personalizado -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="tomarFoto()">
+      <img src="assets/icon/camara.png" alt="Tomar foto" style="width:32px; height:32px;">
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

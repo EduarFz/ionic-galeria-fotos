@@ -1,0 +1,13 @@
+// Centra la foto y la muestra en tamaño completo
+.visor-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.foto-completa {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}

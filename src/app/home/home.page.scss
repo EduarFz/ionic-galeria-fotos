@@ -1,0 +1,12 @@
+// Fotos cuadradas en la grilla
+ion-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+// Sube el botón para que no quede detrás de la barra de navegación
+ion-fab[vertical="bottom"] {
+  margin-bottom: 50px;
+}
