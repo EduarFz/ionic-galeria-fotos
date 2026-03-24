@@ -16,6 +16,16 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'explorar',
+    loadChildren: () => import('./explorar/explorar.module').then(m => m.ExplorarPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'favoritos',
+    loadChildren: () => import('./favoritos/favoritos.module').then(m => m.FavoritosPageModule),
+    canActivate: [AuthGuard]
   }
 ];
 

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="volver()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mis Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="favoritosService.favoritos.length === 0" class="ion-text-center ion-padding">
+    <ion-icon name="heart-outline" size="large" color="medium"></ion-icon>
+    <p>No hay favoritos aún</p>
+  </div>
+
+  <ion-list *ngIf="favoritosService.favoritos.length > 0">
+    <ion-item *ngFor="let foto of favoritosService.favoritos">
+      <ion-thumbnail slot="start">
+        <img [src]="foto.thumbnailUrl" [alt]="foto.title" />
+      </ion-thumbnail>
+      <ion-label>
+        <p>{{ foto.title }}</p>
+      </ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="eliminar(foto.id)">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

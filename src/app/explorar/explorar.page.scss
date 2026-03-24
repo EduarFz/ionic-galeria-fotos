@@ -1,0 +1,17 @@
+.titulo {
+  font-size: 11px;
+  color: #666;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 4px;
+}
+
+ion-card {
+  margin: 4px;
+}
+
+ion-card-content {
+  padding: 6px;
+}
