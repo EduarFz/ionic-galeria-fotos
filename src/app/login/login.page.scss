@@ -2,3 +2,18 @@
   max-width: 400px;
   margin: 60px auto 0 auto;
 }
+
+.credenciales-card {
+  background-color: #f0f4ff;
+  border-left: 4px solid var(--ion-color-primary);
+
+  ion-card-title {
+    font-size: 14px;
+    color: var(--ion-color-primary);
+  }
+
+  p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+}
