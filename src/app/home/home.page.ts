@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PhotoService, UserPhoto } from '../services/photo.service';
 import { ModalController } from '@ionic/angular';
 import { PhotoViewerComponent } from '../components/photo-viewer/photo-viewer.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,25 +15,29 @@ export class HomePage implements OnInit {
 
   constructor(
     public photoService: PhotoService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
-  // Carga las fotos guardadas al abrir la pantalla
   async ngOnInit() {
     await this.photoService.loadSaved();
   }
 
-  // Abre la cámara para tomar una foto
   async tomarFoto() {
     await this.photoService.addNewToGallery();
   }
 
-  // Abre la foto seleccionada en pantalla completa
   async verFoto(photo: UserPhoto) {
     const modal = await this.modalCtrl.create({
       component: PhotoViewerComponent,
       componentProps: { photo }
     });
     await modal.present();
+  }
+
+  async cerrarSesion() {
+    await this.authService.logout();
+    this.router.navigate(['/login'], { replaceUrl: true });
   }
 }
